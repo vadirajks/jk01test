@@ -14,7 +14,7 @@ pipeline {
                 tag "2.0"
             }
             steps {
-                echo 'Hello World building tag having release-* prefix'
+                echo 'Hello World building tag has 2.0'
             }
         }
 
