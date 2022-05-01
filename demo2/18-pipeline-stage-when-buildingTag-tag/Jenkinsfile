@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build1') {
             when{
 		buildingTag()
             }
@@ -9,7 +9,7 @@ pipeline {
                 echo 'Hello World building tag using buildingTag function'
             }
         }
-        stage('Build') {
+        stage('Build2') {
             when{
                 tag "release-*"
             }
