@@ -11,6 +11,15 @@ pipeline {
         }
         stage('Build2') {
             when{
+                tag "2.0"
+            }
+            steps {
+                echo 'Hello World building tag having release-* prefix'
+            }
+        }
+
+        stage('Build3') {
+            when{
                 tag "release-*"
             }
             steps {
