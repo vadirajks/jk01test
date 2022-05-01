@@ -3,10 +3,18 @@ pipeline {
     stages {
         stage('Build') {
             when{
+		buildingTag()
+            }
+            steps {
+                echo 'Hello World building tag using buildingTag function'
+            }
+        }
+        stage('Build') {
+            when{
                 tag "release-*"
             }
             steps {
-                echo 'Hello World building tag'
+                echo 'Hello World building tag having release-* prefix'
             }
         }
     }
