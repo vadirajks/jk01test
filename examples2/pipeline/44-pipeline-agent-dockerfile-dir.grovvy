@@ -1,0 +1,25 @@
+pipeline {
+    agent none
+    stages {
+        stage('Checkout') {
+            agent any
+            steps {
+                checkout([$class: 'GitSCM',
+                          branches: [[name: "origin/main"]],
+                          userRemoteConfigs: [[url: 'https://github.com/vadirajks/jk01test.git']],
+
+                ])
+            }
+        }
+        stage('dockerfile'){
+            agent {
+                dockerfile {
+                    dir 'demo2/44-pipeline-agent-dockerfile-dir/dockerfileDir'
+                }
+            }
+            steps{
+                sh 'cat /etc/lsb-release'
+            }
+        }
+    }
+}

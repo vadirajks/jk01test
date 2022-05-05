@@ -1,0 +1,8 @@
+//-------------------
+//example 3
+//-------------------
+timeout(time: 1, unit: 'SECONDS')  {
+    node{
+        sleep 2
+    }
+}

@@ -1,0 +1,35 @@
+//----------------
+//failfast example
+//----------------
+pipeline {
+    agent any
+    stages {
+        stage('Stages Running in Parallel') {
+            failFast true
+            parallel {
+                stage('Stage1') {
+                    steps {
+                        echo "Stage1 executing"
+			sh "date"
+                        sleep 10
+                    }
+                }
+                stage('Stage2') {
+                    steps {
+                        echo "Stage2 executing"
+			sh "date"
+                        sleep 2
+                        error 'simulating error happened on Stage2'
+                    }
+                }
+                stage('Stage3') {
+                    steps {
+			sh "date"
+                        echo "Stage3 executing"
+                        sleep 10
+                    }
+                }
+            }
+        }
+    }
+}

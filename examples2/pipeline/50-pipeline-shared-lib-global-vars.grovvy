@@ -1,0 +1,18 @@
+//@Library("pipeline-shared-lib") _
+//Library "pipeline-shared-lib" _
+//@Library("pipeline-shared-lib","pipeline-shared-other-lib") _
+@Library("pipeline-shared-lib@dev") _
+
+pipeline {
+    agent any
+    stages{
+        stage('Build'){
+            steps{
+                script{
+                    swissknife.printName 'John'
+                }
+            }
+        }
+    }
+
+}

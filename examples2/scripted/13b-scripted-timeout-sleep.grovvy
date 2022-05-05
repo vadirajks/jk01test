@@ -1,0 +1,10 @@
+//-------------------
+//example 2
+//-------------------
+node{
+    timeout(time: 1, unit: 'SECONDS')  {
+        stage('Build'){
+            sleep 2
+        }
+    }
+}

@@ -1,0 +1,10 @@
+//-------------------
+//example 2
+//-------------------
+node{
+    retry(3){
+        stage('Build'){
+            error "Error statement just got executed"
+        }
+    }
+}

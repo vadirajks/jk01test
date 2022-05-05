@@ -1,0 +1,18 @@
+node{	
+	properties(
+		[
+			pipelineTriggers([
+				triggers: [
+						[
+							$class: 'jenkins.triggers.ReverseBuildTrigger',
+							upstreamProjects: "37b-scripted_upstream_job1a.grovvy,37b-scripted_upstream_job1b.grovvy,37c-scripted_upstream_job2.grovvy", 
+							threshold: hudson.model.Result.SUCCESS //UNSTABLE, FAILURE, NOT_BUILT and ABORTED
+						]
+				]
+			]),
+		]
+	)
+	stage('Build') {			
+		echo 'scripted-upstream executed'
+	}
+}

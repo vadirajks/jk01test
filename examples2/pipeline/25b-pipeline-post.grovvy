@@ -1,0 +1,21 @@
+//changed
+//-------------
+pipeline{
+    agent any
+    stages{
+        stage('Build'){
+            steps{
+                echo "building"
+                //script{
+                //	currentBuild.result = 'UNSTABLE'
+                //}
+            }
+        }
+    }
+    post{
+        //Only runs if the current Pipeline’s or stage’s run has a different completion status from its previous run.
+        changed {
+            echo 'post->changed is called'
+        }
+    }
+}

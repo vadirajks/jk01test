@@ -1,0 +1,15 @@
+pipeline{
+    agent {
+        node{
+            label "linux1"
+            customWorkspace "/tmp/cws"
+        }
+    }
+    stages{
+        stage("Build"){
+            steps{
+                echo "Hello World"
+            }
+        }
+    }
+}

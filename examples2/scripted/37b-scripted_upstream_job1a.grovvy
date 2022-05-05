@@ -1,0 +1,5 @@
+node {
+    stage('Build') {
+        echo 'scripted-upstream-job1 executed'
+    }
+}

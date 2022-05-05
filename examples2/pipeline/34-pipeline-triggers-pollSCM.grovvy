@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    triggers {
+        pollSCM('* * * * *')
+    }
+    stages {
+        stage('Build') {
+            steps {
+                checkout([$class: 'GitSCM',
+                          branches: [[name: "origin/main"]],
+                          userRemoteConfigs: [[url: 'https://github.com/vadirajks/jk01test.git']]
+                ])
+            }
+        }
+    }
+}

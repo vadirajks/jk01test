@@ -1,0 +1,12 @@
+//----------------
+//no node - just stages
+//----------------
+stage('Build')
+        {
+            echo 'this is scripted pipeline with stage Build'
+        }
+
+stage('Deploy')
+        {
+            echo 'this is scripted pipeline with stage Deploy'
+        }

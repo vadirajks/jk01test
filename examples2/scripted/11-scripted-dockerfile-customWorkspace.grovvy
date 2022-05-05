@@ -1,0 +1,19 @@
+node {
+    stage('Build'){
+
+        ws('/var/lib/jenkins/workspace/scripted-demo1/11-scripted-dockerfile-customWorkspace.grovvy/checkout-directory'){
+
+            checkout([$class: 'GitSCM',
+                      branches: [[name: "origin/main"]],
+                      userRemoteConfigs: [[url: 'https://github.com/vadirajks/jk01test.git']]
+            ])
+
+            def myUbuntuImage = docker.build("my-ubuntu:my-latest")
+
+            myUbuntuImage.inside{
+                sh 'cat /etc/lsb-release'
+            }
+        }
+    }
+}
+

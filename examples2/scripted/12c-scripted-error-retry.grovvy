@@ -1,0 +1,8 @@
+//-------------------
+//example 3
+//-------------------
+retry(3){
+    node{
+        error "Error statement just got executed"
+    }
+}

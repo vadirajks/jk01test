@@ -1,0 +1,9 @@
+node {
+    stage('Build'){
+        def mavenImage = docker.withRegistry('https://quay.io','quay.io'){
+            docker.image('quay.io/vadi_ksdba/myfirstrepo:latest').inside {
+                sh 'printenv'
+            }
+        }
+    }
+}

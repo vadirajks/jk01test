@@ -1,0 +1,14 @@
+node {
+    stage('Build'){
+        checkout([$class: 'GitSCM',
+                  branches: [[name: "origin/main"]],
+                  userRemoteConfigs: [[url: 'https://github.com/vadirajks/jk01test.git']]
+        ])
+
+        def myCustomUbuntuImage = docker.build("my-ubuntu:my-latest","--tag mydockerfile:example .")
+
+        myCustomUbuntuImage.inside {
+            sh 'cat /etc/lsb-release'
+        }
+    }
+}

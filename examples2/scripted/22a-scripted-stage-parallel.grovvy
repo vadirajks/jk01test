@@ -1,0 +1,23 @@
+//----------------
+//parallel example
+//----------------
+node{
+    stage('Running in Parallel') {
+        parallel 'Parallel1': {
+            echo "Parallel1 executing"
+	    sh "date"
+            sleep 10
+        },
+                'Parallel2': {
+                    echo "Parallel2 executing"
+	    	    sh "date"
+                    sleep 10
+                },
+                'Parallel3': {
+                    echo "Parallel3 executing"
+		    sh "date"			
+                    sleep 10
+                },
+                failFast : true
+    }
+}

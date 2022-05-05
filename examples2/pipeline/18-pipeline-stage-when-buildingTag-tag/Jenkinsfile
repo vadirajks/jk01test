@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build1') {
+            when{
+		buildingTag()
+            }
+            steps {
+                echo 'Hello World building tag using buildingTag function'
+            }
+        }
+        stage('Build2') {
+            when{
+                tag "2.0"
+            }
+            steps {
+                echo 'Hello World building tag has 2.0'
+            }
+        }
+
+        stage('Build3') {
+            when{
+                tag "release-*"
+            }
+            steps {
+                echo 'Hello World building tag having release-* prefix'
+            }
+        }
+    }
+}

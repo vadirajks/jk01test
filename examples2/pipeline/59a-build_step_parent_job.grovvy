@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build'){
+            steps {
+                // build job: '59a-build_step_child_job1.grovvy', parameters: [[$class: "StringParameterValue", name: "deployEnv", value: "development env"]], propagate: true 
+                build job: '59a-build_step_child_job1.grovvy', parameters: [string(name: 'deployEnv', value: 'development env')], propagate: true
+
+                build job: '59a-build_step_child_job2.grovvy', parameters: [[$class: "StringParameterValue", name: "deployEnv", value: "development env"]], propagate: true
+                // build job: '59a-build_step_child_job2.grovvy', parameters: [string(name: 'deployEnv', value: 'development env')], propagate: true 
+                echo "buildJobReturnValue.result: ${buildJobReturnValue.result}"
+            }
+        }
+    }
+}

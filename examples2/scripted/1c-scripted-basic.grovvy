@@ -1,0 +1,11 @@
+//----------------
+//basic node->stage->node
+//-----------------
+node{
+    stage('Build')
+            {
+                node {
+                    echo 'this is node in stage'
+                }
+            }
+}

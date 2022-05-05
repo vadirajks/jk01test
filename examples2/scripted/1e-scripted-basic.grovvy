@@ -1,0 +1,11 @@
+//----------------
+//specify slaves
+//----------------
+node('master'){
+    node('slave1'){
+        stage('Build')
+                {
+                    echo 'this is node in stage Slave 1'
+                }
+    }
+}

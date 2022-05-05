@@ -1,0 +1,22 @@
+//Positive Example 3
+//------------------
+pipeline {
+    agent any
+    environment {
+        name1 = "Jeff"
+        name2 = "John"
+    }
+    stages {
+        stage('Build') {
+            environment {
+                name2 = "Mike"
+                name3 = "Jamie"
+            }
+            steps {
+                echo "name1 ${name1}"
+                echo "name2 ${name2}"
+                echo "name3 ${name3}"
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+node{
+    ws("/var/lib/jenkins/workspace/31-scripted-checkoutToSubDirectory.grovvy/someSubDir") {
+        checkout([$class: 'GitSCM',
+                  branches: [[name: "origin/main"]],
+                  userRemoteConfigs: [[url: 'https://github.com/vadirajks/jk01test.git']]
+        ])
+        stage('Build'){
+            echo 'Hello World 1'
+        }
+    }
+}

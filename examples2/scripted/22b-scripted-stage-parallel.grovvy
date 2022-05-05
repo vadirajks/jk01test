@@ -1,0 +1,20 @@
+//----------------
+//sequential example
+//----------------
+node {
+    stage('Stage1') {
+        echo "Stage1 executing"
+	sh "date"
+        sleep 10
+    }
+    stage('Stage2') {
+        echo "Stage2 executing"
+	sh "date"
+        sleep 10
+    }
+    stage('Stage3') {
+        echo "Stage3 executing"
+	sh "date"
+        sleep 10
+    }
+}

@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build1') {
+            when{
+                changeRequest()
+            }
+            steps {
+                echo 'Hello World changing request'
+            }
+        }
+        stage('Build2') {
+            when{
+                changeRequest title:"when-pr"
+            }
+            steps {
+                echo 'Hello World changing request'
+            }
+        }
+    }
+}
